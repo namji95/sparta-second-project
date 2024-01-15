@@ -6,11 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentCreateRead {
-    public static void main(String[] args) {
-        StudentCreateRead.StudentCreate();
-
-//        StudentCreateRead.studentRead();
-    }
 
     // 학생 데이터들을 계속 하고 싶다면 while문으로 감싸세요
     public static Student StudentCreate () {
