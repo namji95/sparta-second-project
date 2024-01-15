@@ -10,23 +10,29 @@ public class StudentCreateRead {
     public static void main(String[] args) {
         StudentCreateRead.StudentCreate();
 
-//        StudentCreateRead.studentRead();
+        StudentCreateRead.studentRead();
     }
 
     // 학생 데이터들을 계속 하고 싶다면 while문으로 감싸세요
     public static Student StudentCreate () {
-        System.out.println("학생 이름을 입력하세요");
-        String studentName = Console.inputString();
+        Student newStudent = null;
+        while (true) {
+            System.out.println("학생 이름을 입력하세요");
+            String studentName = Console.inputString();
+            if (studentName.equalsIgnoreCase("end")) {
+                break;
+            }
 
-        List<Course> selectCourses = selectCourse();
+            List<Course> selectCourses = selectCourse();
 
-        long countId = countIdCreate();
+            long countId = countIdCreate();
 
-        Student newStudent = new Student(countId, studentName, selectCourses);
-        StudentData.getInstance().addStudent(newStudent);
+            newStudent = new Student(countId, studentName, selectCourses);
+            StudentData.getInstance().addStudent(newStudent);
 
-        System.out.println("학생이 성공적으로 생성되었습니다!\n");
+            System.out.println("학생이 성공적으로 생성되었습니다!\n");
 
+        }
         return newStudent;
     }
 
@@ -41,8 +47,7 @@ public class StudentCreateRead {
         long accountCourseId = courseId();
         System.out.println("수강할 과목을 선택하세요 (하나 이상 선택, 종료는 'exit'):");
         List<Course> selectCourses = new ArrayList<>();
-        boolean bool = true;
-            while (bool) {
+            while (true) {
                 String studentInput = Console.inputString();
                 if (studentInput.equalsIgnoreCase("exit")) {
                     break;
@@ -74,20 +79,25 @@ public class StudentCreateRead {
     }
 
     public static void studentRead() {
-        System.out.println("등록된 학생 목록 : ");
-        String studentSearch = Console.inputString();
+        while (true) {
+            System.out.println("등록된 학생 목록 : ");
+            String studentSearch = Console.inputString();
+            if (studentSearch.equalsIgnoreCase("end")) {
+                break;
+            }
 
-        for (Student student : StudentData.getInstance().getStudents()) {
-            if (student.getName().equalsIgnoreCase(studentSearch)) {
-                System.out.println("계정 ID: " + student.getAccountId());
-                System.out.println("이름: " + student.getName());
-                System.out.println("수강 과목:");
+            for (Student student : StudentData.getInstance().getStudents()) {
+                if (student.getName().equalsIgnoreCase(studentSearch)) {
+                    System.out.println("계정 ID: " + student.getAccountId());
+                    System.out.println("이름: " + student.getName());
+                    System.out.println("수강 과목:");
 
-                for (Course course : student.getMyCourse()) {
-                    System.out.println("- " + course.getCourseName());
+                    for (Course course : student.getMyCourse()) {
+                        System.out.println("- " + course.getCourseName());
+                    }
                 }
             }
-            System.out.println("----------------------------------");
+                System.out.println("----------------------------------");
         }
     }
 }
