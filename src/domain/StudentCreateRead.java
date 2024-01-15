@@ -13,6 +13,7 @@ public class StudentCreateRead {
 //        StudentCreateRead.studentRead();
     }
 
+    // 학생 데이터들을 계속 하고 싶다면 while문으로 감싸세요
     public static Student StudentCreate () {
         System.out.println("학생 이름을 입력하세요");
         String studentName = Console.inputString();
