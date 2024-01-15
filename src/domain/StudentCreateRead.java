@@ -98,9 +98,5 @@ public class StudentCreateRead {
             }
                 System.out.println("----------------------------------");
         }
-
-
     }
-
-
 }
