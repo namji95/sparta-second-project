@@ -2,7 +2,6 @@ package domain;
 
 import console.Console;
 
-import java.nio.channels.SelectableChannel;
 import java.util.ArrayList;
 import java.util.List;
 
