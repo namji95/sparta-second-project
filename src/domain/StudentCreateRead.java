@@ -9,7 +9,7 @@ public class StudentCreateRead {
     public static void main(String[] args) {
         StudentCreateRead.StudentCreate();
 
-        StudentCreateRead.studentRead();
+//        StudentCreateRead.studentRead();
     }
 
     // 학생 데이터들을 계속 하고 싶다면 while문으로 감싸세요
@@ -98,5 +98,9 @@ public class StudentCreateRead {
             }
                 System.out.println("----------------------------------");
         }
+
+
     }
+
+
 }
